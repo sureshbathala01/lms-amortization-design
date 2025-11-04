@@ -1,7 +1,7 @@
 # Project Status: LMS Amortization Design
 
-**Last Updated**: November 3, 2025  
-**Project Phase**: Design - Milestone 1  
+**Last Updated**: November 4, 2025  
+**Project Phase**: Design - Architecture Complete  
 **Overall Status**: 🔄 In Progress
 
 ---
@@ -14,103 +14,153 @@
 3. ✅ Milestones defined with dependencies (10 milestones)
 4. ✅ Repository structure created
 5. ✅ Core documentation initialized
+6. ✅ **S1.1 v1.0: New Loan Creation (Java-only) documented**
+7. ✅ **Architecture Decision: Java+Python Hybrid approved**
+8. ✅ **Complete technical specifications for hybrid architecture**
+
+### Major Milestone: Hybrid Architecture Complete! 🎉
+**6 comprehensive documents created**:
+1. ✅ Architecture Comparison & Decision
+2. ✅ Java-Python Integration Specification
+3. ✅ Python Module Specification
+4. ✅ S1.1 v2.0: Updated flow with Python hooks
+5. ✅ Deployment Guide (Phase 1)
+6. ✅ Data Model Updates
 
 ### In Progress 🔄
-1. 🔄 **Milestone 1, Scenario S1.1**: New Loan Creation end-to-end flow analysis
-   - **Status**: Ready to begin detailed analysis
-   - **Next Step**: Interactive flow walkthrough
+1. 🔄 **Milestone 1**: Foundation scenarios
+   - ✅ S1.1 v1.0: New Loan Creation (Java-only) - COMPLETE
+   - ✅ S1.1 v2.0: New Loan Creation (Python hybrid) - COMPLETE
+   - ⏳ S1.2: Regular Payment Processing (NEXT)
+   - ⏳ S1.3: Loan Closure
 
-### Planned ⏳
-- Remaining M1 scenarios (S1.2, S1.3)
-- Data model design
-- Technical architecture
-- Milestones 2-10
+---
+
+## Architecture Evolution
+
+### Initial: Java-Only (S1.1 v1.0)
+- All logic in Java
+- Product versions as Java classes
+- Schedule stored in database
+
+### Current: Java+Python Hybrid (S1.1 v2.0)
+- Java: Orchestration, database, security
+- Python: Business logic, calculations
+- Schedule generated on-demand
+- Pre/post hook pattern
+
+---
+
+## Documents Created
+
+### Technical Design (NEW)
+| Document | Status | Lines |
+|----------|--------|-------|
+| Architecture Comparison | ✅ Complete | 800+ |
+| Java-Python Integration | ✅ Complete | 600+ |
+| Python Module Specification | ✅ Complete | 700+ |
+
+### Implementation Guides (NEW)
+| Document | Status | Lines |
+|----------|--------|-------|
+| Deployment Guide Phase 1 | ✅ Complete | 400+ |
+
+### Data Model (NEW)
+| Document | Status | Lines |
+|----------|--------|-------|
+| Schema Updates | ✅ Complete | 300+ |
+
+### Detailed Flows (UPDATED)
+| Document | Status | Lines |
+|----------|--------|-------|
+| S1.1 v1.0 (Java-only) | ✅ Complete | 500+ |
+| S1.1 v2.0 (Python hybrid) | ✅ Complete | 600+ |
+
+**Total New Documentation**: 3,900+ lines
+
+---
+
+## Key Architectural Decisions
+
+| ID | Decision | Date | Impact |
+|----|----------|------|--------|
+| 001 | Bi-temporal Parameter Approach | Nov 3 | High |
+| 002 | Loan ID = Packet ID | Nov 4 | Medium |
+| 003 | Parameter Caching (5-min TTL) | Nov 4 | Medium |
+| 004 | Simulation Schedules View-Only | Nov 4 | High |
+| 005 | **Java+Python Hybrid Architecture** | Nov 4 | **CRITICAL** |
+| 006 | Pre/Post Hook Pattern | Nov 4 | High |
+| 007 | Remove Schedule Storage | Nov 4 | High |
+| 008 | REST API for Phase 1 | Nov 4 | Medium |
+| 009 | One Container Per Version (Phase 1) | Nov 4 | Medium |
+
+---
+
+## Hybrid Architecture Benefits
+
+✅ **Easier Version Management**: Python modules vs Java classes  
+✅ **Faster Iteration**: No compilation needed  
+✅ **Better Separation**: Orchestration vs calculation  
+✅ **Python Strengths**: NumPy, Decimal for finance  
+✅ **Independent Scaling**: Scale calculation containers  
+✅ **Isolated Testing**: Test logic without database  
+✅ **Surgical Rollback**: Rollback specific versions  
 
 ---
 
 ## Next Immediate Steps
 
-### Step 1: S1.1 New Loan Creation Flow (Current)
-**Objective**: Complete end-to-end flow analysis for new loan creation
+### Step 1: Implementation Planning
+**Objective**: Prepare for hybrid architecture implementation
 
-**Approach**:
-- Interactive step-by-step walkthrough
-- Validate each step before proceeding
-- Document decisions and rationale
-- Identify data model requirements
+**Activities**:
+- Set up Python development environment
+- Create base Docker images
+- Implement first Python module (HomeLoan v1.2)
+- Test Java-Python integration
 
-**Expected Output**:
-- Complete flow document in `04-detailed-flows/milestone-1/S1.1-new-loan-creation.md`
-- Data entities identified
-- Technical design questions surfaced
+### Step 2: S1.2 Regular Payment Processing
+**Objective**: Document payment posting with Python hooks
 
-### Step 2: Data Model Foundation
-**Objective**: Define core entities for M1 scenarios
-
-**Entities Expected**:
-- Loan
-- Product
-- ProductVersion
-- Parameter
-- Transaction
-- AmortizationSchedule
-
-### Step 3: Complete Remaining M1 Scenarios
-- S1.2: Regular Payment Processing
-- S1.3: Loan Closure
-
-### Step 4: M1 Review & Approval
-- Review all M1 flows
-- Validate data model
-- Get stakeholder signoff
-- Move to M2
+**Key Questions**:
+- Payment allocation in Python
+- Schedule regeneration triggers
+- Partial vs full payment handling
 
 ---
 
 ## Milestone Progress
 
-| Milestone | Status | Progress | Start Date | Target Date |
-|-----------|--------|----------|------------|-------------|
-| M1: Foundation | 🔄 In Progress | 10% | Nov 3, 2025 | TBD |
-| M2: Parameter Management | ⏳ Planned | 0% | TBD | TBD |
-| M3: Version Management | ⏳ Planned | 0% | TBD | TBD |
-| M4: Migration Operations | ⏳ Planned | 0% | TBD | TBD |
-| M5: Mid-Cycle Operations | ⏳ Planned | 0% | TBD | TBD |
-| M6: Back-dated Transactions | ⏳ Planned | 0% | TBD | TBD |
-| M7: Audit & Compliance | ⏳ Planned | 0% | TBD | TBD |
-| M8: Edge Cases | ⏳ Planned | 0% | TBD | TBD |
-| M9: Performance | ⏳ Planned | 0% | TBD | TBD |
-| M10: Integration | ⏳ Planned | 0% | TBD | TBD |
+| Milestone | Status | Progress | Documentation |
+|-----------|--------|----------|---------------|
+| M1: Foundation | 🔄 In Progress | 33% | 2 scenarios complete |
+| M2: Parameter Management | ⏳ Planned | 0% | - |
+| M3: Version Management | ⏳ Planned | 0% | - |
+| M4: Migration Operations | ⏳ Planned | 0% | - |
+| M5: Mid-Cycle Operations | ⏳ Planned | 0% | - |
+| M6: Back-dated Transactions | ⏳ Planned | 0% | - |
+| M7: Audit & Compliance | ⏳ Planned | 0% | - |
+| M8: Edge Cases | ⏳ Planned | 0% | - |
+| M9: Performance | ⏳ Planned | 0% | - |
+| M10: Integration | ⏳ Planned | 0% | - |
 
 ---
 
-## Risks & Blockers
+## Repository Statistics
 
-### Current Risks
-None identified yet
-
-### Potential Risks
-- Bi-temporal query performance at scale (M2)
-- Dynamic class loading complexity (M3)
-- Migration batch complexity (M4)
-- Cascade recalculation performance (M6)
-
----
-
-## Decisions Pending
-
-1. **Java Class Versioning Convention**: How to name/package versioned classes?
-2. **Parameter Storage Strategy**: Single table with bi-temporal columns or separate history table?
-3. **Migration Batch Framework**: Build custom or use existing job framework?
-4. **Audit Storage**: Separate audit tables or embedded in transactional tables?
+- **Total Files**: 24 (was 19)
+- **New Documents**: 6 (architecture & specs)
+- **Total Documentation**: 6,000+ lines
+- **Milestone 1 Progress**: 33%
+- **Architecture Design**: COMPLETE ✅
 
 ---
 
 ## Team Notes
 
-**Current Focus**: Beginning S1.1 detailed flow analysis with interactive approach.
+**Architecture Design Complete**: Successfully designed and documented Java+Python hybrid architecture with complete specifications for implementation.
 
-**Working Mode**: Iterative validation - describe step, validate, refine, proceed.
+**Next Focus**: Begin implementation or continue with S1.2 documentation.
 
 ---
 
@@ -120,7 +170,11 @@ None identified yet
 |------|--------|--------|
 | 2025-11-03 | Initial status document created | Design Team |
 | 2025-11-03 | Repository structure established | Design Team |
+| 2025-11-04 | S1.1 v1.0 (Java-only) completed | Design Team |
+| 2025-11-04 | Hybrid architecture designed and approved | Design Team |
+| 2025-11-04 | 6 technical specifications created | Design Team |
+| 2025-11-04 | S1.1 v2.0 (Python hybrid) completed | Design Team |
 
 ---
 
-**Next Review Date**: [To be scheduled after M1 completion]
+**Next Review Date**: After implementation planning or S1.2 completion
